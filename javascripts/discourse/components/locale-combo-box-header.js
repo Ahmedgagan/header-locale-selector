@@ -23,6 +23,6 @@ export default SingleSelectHeaderComponent.extend({
 
   @discourseComputed("selectedContent")
   imgSrc(selectedContent) {
-    return `theme_uploads.${selectedContent.value}`
-  }
+    return `theme_uploads.${selectedContent.value}`;
+  },
 });

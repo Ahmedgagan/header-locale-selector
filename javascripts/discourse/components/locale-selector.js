@@ -22,12 +22,17 @@ export default Component.extend({
   },
 
   defaultItem() {
-    const currentUserLocale = document.getElementsByTagName("html")[0].getAttribute("lang").replaceAll("-", "_");
+    const currentUserLocale = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("lang")
+      .replaceAll("-", "_");
 
     if (currentUserLocale) {
       return this.content.find((val) => val.value === currentUserLocale);
     }
 
-    return this.content.find((val) => val.value === this.siteSettings.default_locale);
-  }
+    return this.content.find(
+      (val) => val.value === this.siteSettings.default_locale
+    );
+  },
 });

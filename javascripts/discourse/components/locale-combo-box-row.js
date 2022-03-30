@@ -4,6 +4,6 @@ import discourseComputed from "discourse-common/utils/decorators";
 export default SelectKitRowComponent.extend({
   @discourseComputed("rowValue")
   imgSrc(rowValue) {
-    return `theme_uploads.${rowValue}`
-  }
+    return `theme_uploads.${rowValue}`;
+  },
 });

@@ -17,5 +17,5 @@ export default SingleSelectComponent.extend({
 
   modifyComponentForRow() {
     return "locale-combo-box-row";
-  }
+  },
 });
