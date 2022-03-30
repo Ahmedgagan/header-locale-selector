@@ -1,0 +1,30 @@
+#locale-selector {
+  .select-kit-body {
+    .select-kit-filter {
+      .d-icon {
+        width: 20px;
+      }
+    }
+
+    .select-kit-collection {
+      .select-kit-row {
+        .locale-flag {
+          height: 35px;
+        }
+      }
+    }
+  }
+
+  .select-kit-header {
+    .select-kit-header-wrapper {
+      .d-icon {
+        width: 20px;
+      }
+
+      .selected-locale-flag {
+        height: 25px;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}

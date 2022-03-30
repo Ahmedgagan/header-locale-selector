@@ -1,0 +1,15 @@
+<div class="controls">
+  {{locale-combo-box
+    id="locale-selector"
+    valueProperty="value"
+    langProperty="value"
+    content=availableLocales
+    value=currentUser.locale
+    onChange=onChangeLocale
+    defaultItem=defaultItem
+    options=(hash
+      filterable=true
+      none="user.locale.default"
+    )
+  }}
+</div>
