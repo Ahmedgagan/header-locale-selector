@@ -60,9 +60,7 @@ export default apiInitializer("0.11.1", (api) => {
             this.scheduleRerender();
           })
           .catch((error) => {
-            popupAjaxError(error);
             this.state.isTranslated = false;
-            this.state.isTranslating = false;
             this.state.translateError = true;
             this.scheduleRerender();
           });
