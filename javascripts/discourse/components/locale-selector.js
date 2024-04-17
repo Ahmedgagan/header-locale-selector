@@ -1,14 +1,15 @@
 import Component from "@ember/component";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 import { userPath } from "discourse/lib/url";
-import discourseComputed from "discourse-common/utils/decorators";
 
-export default Component.extend({
-  @discourseComputed()
-  availableLocales() {
+export default class LocaleSelector extends Component {
+  @service currentUser;
+
+  get availableLocales() {
     return JSON.parse(this.siteSettings.available_locales);
-  },
+  }
 
   @action
   onChangeLocale(value) {
@@ -19,7 +20,7 @@ export default Component.extend({
     }).then((val) => {
       location.reload();
     });
-  },
+  }
 
   defaultItem() {
     const currentUserLocale = document
@@ -34,5 +35,5 @@ export default Component.extend({
     return this.content.find(
       (val) => val.value === this.siteSettings.default_locale
     );
-  },
-});
+  }
+}
