@@ -1,8 +1,8 @@
-import { apiInitializer } from "discourse/lib/api";
-import { createWidget } from "discourse/widgets/widget";
-import ComponentConnector from "discourse/widgets/component-connector";
 import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import { apiInitializer } from "discourse/lib/api";
+import ComponentConnector from "discourse/widgets/component-connector";
+import { createWidget } from "discourse/widgets/widget";
 
 export default apiInitializer("0.11.1", (api) => {
   const siteSettings = api.container.lookup("site-settings:main");

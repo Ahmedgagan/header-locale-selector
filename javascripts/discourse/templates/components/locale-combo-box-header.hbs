@@ -1,7 +1,8 @@
 <div class="select-kit-header-wrapper">
   {{#each icons as |icon|}} {{d-icon icon}} {{/each}}
-  <img class="selected-locale-flag" src={{theme-setting imgSrc}}>
-  {{component selectKit.options.selectedNameComponent
+  <img class="selected-locale-flag" src={{theme-setting imgSrc}} />
+  {{component
+    selectKit.options.selectedNameComponent
     tabindex=tabindex
     item=selectedContent
     selectKit=selectKit

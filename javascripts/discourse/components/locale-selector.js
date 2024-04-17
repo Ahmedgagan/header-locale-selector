@@ -1,8 +1,8 @@
 import Component from "@ember/component";
-import discourseComputed from "discourse-common/utils/decorators";
 import { action } from "@ember/object";
 import { ajax } from "discourse/lib/ajax";
 import { userPath } from "discourse/lib/url";
+import discourseComputed from "discourse-common/utils/decorators";
 
 export default Component.extend({
   @discourseComputed()
