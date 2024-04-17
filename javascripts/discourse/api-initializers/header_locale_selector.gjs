@@ -1,26 +1,21 @@
 import { ajax } from "discourse/lib/ajax";
-import { popupAjaxError } from "discourse/lib/ajax-error";
 import { apiInitializer } from "discourse/lib/api";
-import ComponentConnector from "discourse/widgets/component-connector";
-import { createWidget } from "discourse/widgets/widget";
+import LocaleSelector from "../components/locale-selector";
 
-export default apiInitializer("0.11.1", (api) => {
+export default apiInitializer("1.28.0", (api) => {
   const siteSettings = api.container.lookup("site-settings:main");
   const currentUser = api.getCurrentUser();
 
   if (currentUser && siteSettings.allow_user_locale) {
-    createWidget("header-locale-selector-widget", {
-      buildKey: () => "header-locale-selector-widget",
-      tagName: "li",
-
-      html() {
-        return new ComponentConnector(this, "locale-selector", {
-          layoutName: "components/locale-selector",
-        });
-      },
-    });
-
-    api.addToHeaderIcons("header-locale-selector-widget");
+    api.headerIcons.add(
+      "locale-selector",
+      <template>
+        <li class="header-locale-selector-widget"><LocaleSelector /></li>
+      </template>,
+      {
+        before: api.headerIcons.has("chat") ? "chat" : "search",
+      }
+    );
 
     api.reopenWidget("post-menu", {
       didRenderWidget() {
