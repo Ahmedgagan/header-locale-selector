@@ -9,7 +9,6 @@ export default SingleSelectComponent.extend({
     caretUpIcon: "caret-up",
     caretDownIcon: "caret-down",
     autoFilterable: "autoFilterable",
-    clearable: false,
     headerComponent: "locale-combo-box/header",
   },
 

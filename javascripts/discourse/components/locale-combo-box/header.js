@@ -8,7 +8,6 @@ export default SingleSelectHeaderComponent.extend({
   clearable: reads("selectKit.options.clearable"),
   caretUpIcon: reads("selectKit.options.caretUpIcon"),
   caretDownIcon: reads("selectKit.options.caretDownIcon"),
-  shouldDisplayClearableButton: and("clearable", "value"),
 
   caretIcon: computed(
     "selectKit.isExpanded",
