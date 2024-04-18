@@ -10,12 +10,12 @@ export default SingleSelectComponent.extend({
     caretDownIcon: "caret-down",
     autoFilterable: "autoFilterable",
     clearable: false,
-    headerComponent: "locale-combo-box-header",
+    headerComponent: "locale-combo-box/header",
   },
 
   autoFilterable: gte("content.length", 10),
 
   modifyComponentForRow() {
-    return "locale-combo-box-row";
+    return "locale-combo-box/row";
   },
 });
