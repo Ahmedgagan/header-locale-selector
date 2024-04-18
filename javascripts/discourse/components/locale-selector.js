@@ -26,17 +26,13 @@ export default class LocaleSelector extends Component {
   }
 
   defaultItem() {
-    const currentUserLocale = document
-      .getElementsByTagName("html")[0]
+    const currentUserLocale = document.documentElement
       .getAttribute("lang")
-      .replaceAll("-", "_");
+      ?.replaceAll("-", "_");
 
-    if (currentUserLocale) {
-      return this.content.find((val) => val.value === currentUserLocale);
-    }
-
-    return this.content.find(
-      (val) => val.value === this.siteSettings.default_locale
+    return (
+      this.content.find((val) => val.value === currentUserLocale) ||
+      this.content.find((val) => val.value === this.siteSettings.default_locale)
     );
   }
 }
