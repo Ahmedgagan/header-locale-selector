@@ -1,21 +1,21 @@
 <div class="select-kit-header-wrapper">
-  {{#each icons as |icon|}} {{d-icon icon}} {{/each}}
-  <img class="selected-locale-flag" src={{theme-setting imgSrc}} />
+  {{#each this.icons as |icon|}} {{d-icon icon}} {{/each}}
+  <img class="selected-locale-flag" src={{theme-setting this.imgSrc}} />
   {{component
-    selectKit.options.selectedNameComponent
-    tabindex=tabindex
-    item=selectedContent
-    selectKit=selectKit
+    this.selectKit.options.selectedNameComponent
+    tabindex=this.tabindex
+    item=this.selectedContent
+    selectKit=this.selectKit
   }}
 
-  {{#if shouldDisplayClearableButton}}
+  {{#if this.shouldDisplayClearableButton}}
     <DButton
       class="btn-clear"
       @icon="times"
-      @action={{selectKit.onClearSelection}}
+      @action={{this.selectKit.onClearSelection}}
       @ariaLabel="clear_input"
     />
   {{/if}}
 
-  {{d-icon caretIcon class="caret-icon"}}
+  {{d-icon this.caretIcon class="caret-icon"}}
 </div>
