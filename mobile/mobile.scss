@@ -1,6 +1,10 @@
-.header-locale-selector {
-  .select-kit-header .selected-name .name {
+.header-locale-selector .select-kit-header {
+  .selected-name .name {
     display: none;
+  }
+
+  .selected-locale-flag {
+    margin-inline-end: 0 !important;
   }
 }
 
