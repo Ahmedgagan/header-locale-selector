@@ -8,8 +8,9 @@
 
     .select-kit-collection {
       .select-kit-row {
-        .locale-flag {
+        .selected-locale-flag {
           height: 35px;
+          margin-inline-end: 0.5em;
         }
       }
     }
@@ -19,11 +20,12 @@
     .select-kit-header-wrapper {
       .d-icon {
         width: 20px;
+        font-size: var(--font-up-1);
       }
 
       .selected-locale-flag {
         height: 25px;
-        margin-right: 0.5em;
+        margin-inline-end: 0.5em;
       }
     }
   }

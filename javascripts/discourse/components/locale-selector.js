@@ -1,14 +1,16 @@
 import Component from "@ember/component";
-import discourseComputed from "discourse-common/utils/decorators";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 import { userPath } from "discourse/lib/url";
+import { isTesting } from "discourse-common/config/environment";
 
-export default Component.extend({
-  @discourseComputed()
-  availableLocales() {
+export default class LocaleSelector extends Component {
+  @service currentUser;
+
+  get availableLocales() {
     return JSON.parse(this.siteSettings.available_locales);
-  },
+  }
 
   @action
   onChangeLocale(value) {
@@ -17,22 +19,20 @@ export default Component.extend({
       data: { locale: this.currentUser.locale },
       type: "PUT",
     }).then((val) => {
-      location.reload();
+      if (!isTesting()) {
+        location.reload();
+      }
     });
-  },
+  }
 
   defaultItem() {
-    const currentUserLocale = document
-      .getElementsByTagName("html")[0]
+    const currentUserLocale = document.documentElement
       .getAttribute("lang")
-      .replaceAll("-", "_");
+      ?.replaceAll("-", "_");
 
-    if (currentUserLocale) {
-      return this.content.find((val) => val.value === currentUserLocale);
-    }
-
-    return this.content.find(
-      (val) => val.value === this.siteSettings.default_locale
+    return (
+      this.content.find((val) => val.value === currentUserLocale) ||
+      this.content.find((val) => val.value === this.siteSettings.default_locale)
     );
-  },
-});
+  }
+}

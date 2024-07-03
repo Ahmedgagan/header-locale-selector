@@ -1,0 +1,12 @@
+<div class="controls">
+  <LocaleComboBox
+    @valueProperty="value"
+    @langProperty="value"
+    @class="header-locale-selector"
+    @content={{this.availableLocales}}
+    @value={{this.currentUser.locale}}
+    @onChange={{this.onChangeLocale}}
+    @defaultItem={{this.defaultItem}}
+    @options={{hash filterable=true none="user.locale.default"}}
+  />
+</div>

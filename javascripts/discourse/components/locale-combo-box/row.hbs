@@ -1,0 +1,9 @@
+{{#each this.icons as |icon|}}
+  {{d-icon icon translatedtitle=this.dasherizedTitle}}
+{{/each}}
+
+<img class="selected-locale-flag" src={{theme-setting this.imgSrc}} />
+
+<span class="name">
+  {{this.label}}
+</span>
